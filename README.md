@@ -30,14 +30,18 @@ The notebook ```code/02_RegressionExample.ipynb``` provides an example of the Fo
 
 * <b>Evaluation MNIST</b><br>
 The notebook ```code/11_Evaluate_MNIST.ipynb``` provides an example of the Forward Relevance Propagation applied to a regression task.  
-
+<p align=center>
+<img src="https://github.com/JakobCode/RFP/assets/77287533/03bf2857-4b9e-4ef9-bb4f-4169c61c4796" alt="teaser2" width="600">
+</p>
 * <b> Evaluation SEN12MS </b><br>
 The notebook ```code/12_Evaluate_SEN12MS.ipynb``` provides a pipeline to apply Relevance Forward Propagation to pre-trained networks provided by the authors of the data set.<br>
 The pretrained networks can be found [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt).<br>
 The original (clear) can be found [here](https://mediatum.ub.tum.de/1474000).<br>
 The cloudy Version can be found [here](https://mediatum.ub.tum.de/1554803) and [here](https://patricktum.github.io/cloud_removal/sen12mscr/).<br>
 We provide checkpoints with intermediate computation steps: ([link_goes_here](https:link_goes_here))
-
+<p align=center>
+<img src="https://github.com/JakobCode/RFP/assets/77287533/4b848a90-44d4-4cf0-950b-e15e86176d70" alt="teaser2" width="600">
+</p>
 
 ## Citation
 
