@@ -20,6 +20,7 @@ Then install the needed packages via the ```setup.py```:
 pip install --upgrade pip
 python setup.py install
 ```
+Further, for working with the ```SEN12MS``` data set, the configurations for the data set have to be set in ```config/config.py```. 
 
 ## Content
 The folder code contains Jupyter Notebooks to reproduce the experiments and to explore the approach on the Multi-Source MNIST data set. 
