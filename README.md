@@ -33,6 +33,7 @@ The notebook ```code/11_Evaluate_MNIST.ipynb``` provides an example of the Forwa
 <p align=center>
 <img src="https://github.com/JakobCode/RFP/assets/77287533/03bf2857-4b9e-4ef9-bb4f-4169c61c4796" alt="teaser2" width="1000">
 </p>
+
 * <b> Evaluation SEN12MS </b><br>
 The notebook ```code/12_Evaluate_SEN12MS.ipynb``` provides a pipeline to apply Relevance Forward Propagation to pre-trained networks provided by the authors of the data set.<br>
 The pretrained networks can be found [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt).<br>
