@@ -4,7 +4,7 @@ This repository contains the code for the paper <i>Efficient Data Source Relevan
 <br><br>
 The work proposes a Forward Relevance Propation approach to compute source-wise relevevances values within the neural network forward pass. 
 <p align=center>
-<img src="https://user-images.githubusercontent.com/77287533/228695768-bc673b4a-a540-4963-8604-189350671204.png" alt="teaser2" width="600">
+<img src="[https://user-images.githubusercontent.com/77287533/228695768-bc673b4a-a540-4963-8604-189350671204.png](https://github.com/JakobCode/RFP/assets/77287533/0581b779-54bb-4dd2-b79b-977a61f905a1)" alt="teaser2" width="600">
 </p>
 
 ## Prerequisites and Setup
