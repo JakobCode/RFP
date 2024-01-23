@@ -32,9 +32,9 @@ The notebook ```code/11_Evaluate_MNIST.ipynb``` provides an example of the Forwa
 
 * <b> Evaluation SEN12MS </b><br>
 The notebook ```code/12_Evaluate_SEN12MS.ipynb``` provides a pipeline to apply Relevance Forward Propagation to pre-trained networks provided by the authors of the data set.<br>
-The pretrained networks can be found here: [https://github.com/schmitt-muc/SEN12MS/](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt)<br>
-The original (clear) can be found here: [https://mediatum.ub.tum.de/1474000](https://mediatum.ub.tum.de/1474000)<br>
-The cloudy Version can be found here: [https://mediatum.ub.tum.de/1554803](https://mediatum.ub.tum.de/1554803) and [https://patricktum.github.io/cloud_removal/sen12mscr/](https://patricktum.github.io/cloud_removal/sen12mscr/)<br>
+The pretrained networks can be found [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt)<br>
+The original (clear) can be found [here](https://mediatum.ub.tum.de/1474000)<br>
+The cloudy Version can be found [here](https://mediatum.ub.tum.de/1554803) and [here](https://patricktum.github.io/cloud_removal/sen12mscr/)<br>
 We provide checkpoints with intermediate computation steps: ([link_goes_here](https:link_goes_here))
 
 
