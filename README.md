@@ -37,24 +37,11 @@ The original (clear) can be found here:[https://mediatum.ub.tum.de/1474000](http
 The cloudy Version can be found here: [https://mediatum.ub.tum.de/1554803](https://mediatum.ub.tum.de/1554803) and [https://patricktum.github.io/cloud_removal/sen12mscr/](https://patricktum.github.io/cloud_removal/sen12mscr/)<br>
 We provide checkpoints with intermediate computation steps: ([link_goes_here](https:link_goes_here))
 
-## Example Visualizations
-
-Relevance of the optical and the SAR data source for the <i>forest</i> and the <i>urban</i> class for a network trained with cross-entropy loss and a network with the source-wise relevance loss. 
-<p align=center>
-<img src="https://user-images.githubusercontent.com/77287533/228696931-320d9662-4a11-4536-b63c-9f9fbb6a7224.png" alt="density_plot" width="900">
-</p>
-
-
-Example images and corresponding relevance scores for a <i>forest</i> sample and an <i>urban</i> sample for a network trained with cross-entropy loss. 
-<p align=center>
-<img src="https://user-images.githubusercontent.com/77287533/228696710-405c9d12-fbac-427d-83f1-da7b717ee506.png" alt="Sample_567_class_0" width="460"> <img src="https://user-images.githubusercontent.com/77287533/228696712-500eb650-09e4-4ddc-95f0-166d68e5f5ee.png" alt="Sample_2256_class_4" width="460">
-</p>
 
 ## Citation
 
 ```
-[1] Names, Names, (2024). Efficient Data Source Relevance Quantification
-and Application to SAR-Optical Fusion Networks. TBA.
+[1] Names, Names, (2024). Efficient Data Source Relevance Quantification for Multi-Source Neural Networks. TBA.
 ```
 
 BibTeX format:
