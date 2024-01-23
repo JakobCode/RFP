@@ -32,41 +32,10 @@ The notebook ```code/11_Evaluate_MNIST.ipynb``` provides an example of the Forwa
 
 * <b> Evaluation SEN12MS </b><br>
 The notebook ```code/12_Evaluate_SEN12MS.ipynb``` provides a pipeline to apply Relevance Forward Propagation to pre-trained networks provided by the authors of the data set.<br>
-The pretrained networks can be found here: [https://github.com/schmitt-muc/SEN12MS/](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt).<br>
-The original (clear) can be found here:[https://mediatum.ub.tum.de/1474000](https://mediatum.ub.tum.de/1474000)
-The cloudy Version can be found here: [https://mediatum.ub.tum.de/1554803](https://mediatum.ub.tum.de/1554803) and [https://patricktum.github.io/cloud_removal/sen12mscr/](https://patricktum.github.io/cloud_removal/sen12mscr/)
-We provide checkpoints with intermediate computation steps:  
-
-
-The script takes in three optional command line arguments:
-
-* `-ckpt`: Path to pretrained FusionResNet18 checkpoint.
-* `-cloud_mode`: Mode of cloud images to evaluate. Choices are "cloudy" and "clear". Default is "clear".
-* `-print_id`: If set to an integer value, only the specified id will be evaluated. If not set, the entire dataset will be evaluated.
-
-
-## Outputs
-
-The script generates the following output files and saves them in the `Figures` folder located in the same directory as the checkpoint file:
-- Accuracy plots: Saved in the `Accuracy` subfolder.
-- Classwise relevance values: Saved in the `Relevance` subfolder.
-- Summaries: Saved in the `Summaries` subfolder (only generated when `-print_id` is set to a specific sample ID).
-
-
-## Example Calls
-
-To evaluate the entire dataset of cloudy images with the default checkpoint, run the following command:
-
-```
-python evaluate.py -cloud_mode "cloudy"
-```
-
-
-To evaluate only the image with id 123 with a custom checkpoint, run the following command:
-
-```
-python evaluate.py -ckpt "/path/to/checkpoint.pth" -cloud_mode "cloudy" -print_id 123
-```
+The pretrained networks can be found here: [https://github.com/schmitt-muc/SEN12MS/](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt)<br>
+The original (clear) can be found here:[https://mediatum.ub.tum.de/1474000](https://mediatum.ub.tum.de/1474000)<br>
+The cloudy Version can be found here: [https://mediatum.ub.tum.de/1554803](https://mediatum.ub.tum.de/1554803) and [https://patricktum.github.io/cloud_removal/sen12mscr/](https://patricktum.github.io/cloud_removal/sen12mscr/)<br>
+We provide checkpoints with intermediate computation steps: ([link_goes_here](https:link_goes_here))
 
 ## Example Visualizations
 
