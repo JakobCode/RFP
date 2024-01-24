@@ -65,10 +65,11 @@ db.sqlite3-journal
 instance/
 .webassets-cache
 
+code/tmp*
 code/tmp
 code/data
 Experiments
-
+SEN12MS_examples
 # Scrapy stuff:
 .scrapy
 

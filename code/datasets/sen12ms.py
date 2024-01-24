@@ -441,6 +441,34 @@ class SEN12MS(data.Dataset):
         dist = torch.unique(classes, return_counts=True)
         return dist
 
+    def get_print_data(self, sample_id):
+        sample = self.samples[sample_id]
+
+        img_trafo_low = lambda x: torch.clip(x, 0, 2500) / 2500
+        img_trafo_high = lambda x: torch.clip(x, 0, 4000) / 4000
+        img2 = torch.as_tensor(load_s1(sample["s1"], img_transform=None))
+        img1_clear = torch.as_tensor(load_s2(sample["s2"], s2_band=S2_BANDS_RGB, img_transform=True))
+        img1_clear = img_trafo_low(img1_clear)
+
+        if "s2_cloudy" in sample:
+            img1_cloudy = torch.as_tensor(load_s2(sample["s2_cloudy"], s2_band=S2_BANDS_RGB, img_transform=True))
+        
+            if img1_cloudy.mean() > 2000:
+                img1_cloudy = img_trafo_high(img1_cloudy)
+            else:
+                img1_cloudy = img_trafo_low(img1_cloudy)
+        else:
+            img1_cloudy = torch.ones_like(img1_clear)
+
+
+        img1_clear = torch.stack([img1_clear[2], img1_clear[1], img1_clear[0]],-1)
+        img1_cloudy = torch.stack([img1_cloudy[2], img1_cloudy[1], img1_cloudy[0]],-1)
+        img2 = torch.cat([img2, img2.sum(0, keepdims=True) * 0.5], 0).permute(dims=[1,2,0])
+            
+        label = self.labels_filtered[sample['id']]
+        label_str = CLASS_NAMES[label]
+        return {"img1_clear": img1_clear, "img1_cloudy": img1_cloudy, "img2": img2, "id": sample["id"], "label": label, "label_str": label_str}
+
     def plot_imgs(self, axs, num_examples, fontsize=12, cloudy_only=False):
         plot_idx = torch.randperm(len(self))
 
@@ -450,29 +478,14 @@ class SEN12MS(data.Dataset):
         for row_id in range(num_examples[0]):
             for col_id in range(num_examples[1]):
 
-                sample = self.samples[plot_idx[row_id*num_examples[1]+col_id]]
+                sample = self.get_print_data(plot_idx[row_id*num_examples[1]+col_id])
 
-                img_trafo_low = lambda x: torch.clip(x, 0, 2500) / 2500
-                img_trafo_high = lambda x: torch.clip(x, 0, 4000) / 4000
-                img2 = torch.as_tensor(load_s1(sample["s1"], img_transform=None))
-                img1_clear = torch.as_tensor(load_s2(sample["s2"], s2_band=S2_BANDS_RGB, img_transform=True))
-                img1_clear = img_trafo_low(img1_clear)
-
-                if "s2_cloudy" in sample:
-                    img1_cloudy = torch.as_tensor(load_s2(sample["s2_cloudy"], s2_band=S2_BANDS_RGB, img_transform=True))
+                img1_clear = sample["img1_clear"]
+                img1_cloudy = sample["img1_cloudy"]
+                img2 = sample["img2"]
                 
-                    if img1_cloudy.mean() > 2000:
-                        img1_cloudy = img_trafo_high(img1_cloudy)
-                    else:
-                        img1_cloudy = img_trafo_low(img1_cloudy)
-                else:
-                    img1_cloudy = torch.ones_like(img1_clear)
-
-                img1_clear = torch.stack([img1_clear[2], img1_clear[1], img1_clear[0]],-1)
-                img1_cloudy = torch.stack([img1_cloudy[2], img1_cloudy[1], img1_cloudy[0]],-1)
-                img2 = torch.cat([img2, img2.sum(0, keepdims=True) * 0.5], 0).permute(dims=[1,2,0])
-
                 img1 = torch.cat([img1_clear, torch.ones([img1_clear.shape[0],10,3]), img1_cloudy], -2)
+
                 img = torch.cat([img1, torch.ones([10, img1.shape[1],3]), torch.cat([img2, torch.ones([img1.shape[0],10,3]), torch.ones_like(img2)], -2)], 0)
                 axs[row_id,col_id].matshow(img, cmap="gray")
                 axs[row_id,col_id].axis("off")
