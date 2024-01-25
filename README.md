@@ -50,8 +50,7 @@ We provide checkpoints with intermediate computation steps: ([link_goes_here](ht
 To use the provided scripts, the config file ```code/config/config.py``` has to be adjusted by setting the following variables:
 * ```ckpt_path_resnet50_sen12ms_cfg```: path to the pre-trained network [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt)
 * ```data_dir_sen12ms_cfg```: path to the root folder of SEN12MS
-*```data_dir_sen12mscr_cfg```: path to the root folder of SEN12MSCR 
-
+* ```data_dir_sen12mscr_cfg```: path to the root folder of SEN12MSCR 
 * ```label_split_dir_cfg``` folder containing the sample split fiels [(see here)](https://github.com/schmitt-muc/SEN12MS/tree/master/splits)
   
 <p align=center>
