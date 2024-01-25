@@ -20,7 +20,6 @@ class SmallNet(torch.nn.Module):
             torch.nn.ReLU(),
             torch.nn.MaxPool2d(2)) # 12 x 12 x 64
 
-        self.dropout = torch.nn.Dropout(0.5)
         self.fc1 = torch.nn.Linear(2 * ((input_shape[0]-4) // 2) * ((input_shape[1]-4) // 2) * 64, 128)
         self.fc2 = torch.nn.Linear(128, num_classes)
 

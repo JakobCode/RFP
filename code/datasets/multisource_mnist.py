@@ -73,29 +73,29 @@ class MSMNIST(Dataset):
 
     # shuffle (all) images
     if self.shuffle1:
-      j,k = self.mnist_dataset1[0].shape
+      _, j,k = self.mnist_dataset1[0][0].shape
       for img_id in range(len(self.mnist_dataset1)):
         self.mnist_dataset1.data[img_id] = self.mnist_dataset1.data[img_id].reshape([-1])[torch.randperm(j*k)].reshape([j,k])
 
     if self.shuffle2:
-      j,k = self.mnist_dataset2[0].shape
+      _, j,k = self.mnist_dataset2[0][0].shape
       for img_id in range(len(self.mnist_dataset2)):
         self.mnist_dataset2.data[img_id] = self.mnist_dataset2.data[img_id].reshape([-1])[torch.randperm(j*k)].reshape([j,k])
 
     # apply data noise (to fraction of samples)
     if self.data_noise1 > 0:
-      j,k = self.mnist_dataset1[0].shape
+      _, j,k = self.mnist_dataset1[0][0].shape
       noisy_ids1 = torch.randperm(len(self.mnist_dataset1))[:int(self.data_noise1*len(self.mnist_dataset1))]
       for img_id in noisy_ids1:
         self.mnist_dataset1.data[img_id] = torch.randint_like(self.mnist_dataset1.data[img_id], 256)
-        self.data_noise1[img_id] = True
+        self.is_data_noise1[img_id] = True
 
     if self.data_noise2 > 0:
-      j,k = self.mnist_dataset2[0].shape
+      _, j,k = self.mnist_dataset2[0][0].shape
       noisy_ids2 = torch.randperm(len(self.mnist_dataset2))[:int(self.data_noise2*len(self.mnist_dataset2))]
       for img_id in noisy_ids2:    
         self.mnist_dataset2.data[img_id] = torch.randint_like(self.mnist_dataset2.data[img_id], 256)
-        self.data_noise2[img_id] = True
+        self.is_data_noise2[img_id] = True
 
     # apply label noise (to fraction of samples)
     if self.label_noise1 > 0:
@@ -110,7 +110,7 @@ class MSMNIST(Dataset):
           shuffled_labels_idx[i+1] = shuffled_labels_idx[i] 
         
         self.idx1_list[old_id] = new_id
-        self.label_noise1[old_id] = True
+        self.is_label_noise1[old_id] = True
 
     if self.label_noise2 > 0:
       noisy_ids2 = torch.randperm(len(self.mnist_dataset2))[:int(self.label_noise2*len(self.mnist_dataset2))]
@@ -124,7 +124,11 @@ class MSMNIST(Dataset):
           shuffled_labels_idx[i+1] = shuffled_labels_idx[i] 
         
         self.idx2_list[old_id] = new_id
-        self.label_noise2[old_id] = True
+        self.is_label_noise2[old_id] = True
+
+    if self.label_summation:
+      self.idx1_list = torch.randperm(len(self.idx1_list))
+      self.idx2_list = torch.randperm(len(self.idx2_list))
 
   def __getitem__(self, idx):
     """
@@ -151,8 +155,8 @@ class MSMNIST(Dataset):
     """
 
     if self.label_summation and self.train:
-      idx1 = torch.randint([1,])[0]
-      idx2 = torch.randint([1,])[0]    
+      idx1 = torch.randint(len(self), [1,])[0]
+      idx2 = torch.randint(len(self), [1,])[0]    
     else:
       idx1 = self.idx1_list[idx]
       idx2 = self.idx2_list[idx]
@@ -172,8 +176,12 @@ class MSMNIST(Dataset):
     if self.label_summation:
       label = (label1 + label2) % 10
     else:
-      assert label1 == label2
-      label = label1
+      assert label1 == label2 or label_noise1 or label_noise2
+
+      if not label_noise1: 
+        label = label1
+      elif not label_noise2: 
+        label = label2
 
     return {"img1": img1, 
             "img2": img2, 
