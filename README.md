@@ -46,6 +46,14 @@ The pretrained networks can be found [here](https://github.com/schmitt-muc/SEN12
 The original (clear) can be found [here](https://mediatum.ub.tum.de/1474000).<br>
 The cloudy Version can be found [here](https://mediatum.ub.tum.de/1554803) and [here](https://patricktum.github.io/cloud_removal/sen12mscr/).<br>
 We provide checkpoints with intermediate computation steps: ([link_goes_here](https:link_goes_here))
+
+To use the provided scripts, the config file ```code/config/config.py``` has to be adjusted by setting the following variables:
+* ```ckpt_path_resnet50_sen12ms_cfg```: path to the pre-trained network [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt)
+* ```data_dir_sen12ms_cfg```: path to the root folder of SEN12MS
+*```data_dir_sen12mscr_cfg```: path to the root folder of SEN12MSCR 
+
+* ```label_split_dir_cfg``` folder containing the sample split fiels [(see here)](https://github.com/schmitt-muc/SEN12MS/tree/master/splits)
+  
 <p align=center>
 <img src="https://github.com/JakobCode/RFP/assets/77287533/4b848a90-44d4-4cf0-950b-e15e86176d70" alt="teaser2" width="800">
 </p>
