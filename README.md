@@ -50,7 +50,7 @@ We provide checkpoints with intermediate computation steps: ([link_goes_here](ht
 <img src="https://github.com/JakobCode/RFP/assets/77287533/4b848a90-44d4-4cf0-950b-e15e86176d70" alt="teaser2" width="800">
 </p>
 
-* <b> Evaluation of ADVANCE data Set </b> <br>
+* <b> Evaluation of ADVANCE </b> <br>
 For the advance data, the original authors repository can simply be adapted by applying adjusting the framework provided by the authors. For the basic case, the script has to be adjusted to only consider the MSE, loss and dropping the Scene loss. The RFP reperensetation can be applied straight forward by using the functionalities in this repo (```code/input_mapper.py```).
 [LINK](https://github.com/DTaoo/Multimodal-Aerial-Scene-Recognition/blob/master/model/sq_transfer.py)
 
