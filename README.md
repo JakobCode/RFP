@@ -15,7 +15,7 @@ Create a new environment and activate it, for instance, on unix via
 ```
 python -m venv venv && source venv/bin/activate
 ```
-Then install the needed packages via the ```setup.py```:
+Then install the needed packages via the ```requirements.txt``` file:
 ```
 pip install --upgrade pip
 pip install -r requirements.txt
