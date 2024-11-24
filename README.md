@@ -30,8 +30,7 @@ The notebook ```code/01_MNISTPlayGround.ipynb``` provides a pipeline to explore 
 The notebook ```code/02_RegressionExample.ipynb``` provides an example of the Forward Relevance Propagation applied to a regression task.  
 
 * <b>Evaluation MNIST</b><br>
-The notebook ```code/11_Evaluate_MNIST.ipynb``` provides a pipeline for the evaluation of the MNIST experiments presented in the paper. <br>
-Model weights and intermediate saves can be found here: ([link_goes_here](https:link_goes_here))
+The notebook ```code/11_Evaluate_MNIST.ipynb``` provides a pipeline for the evaluation of the MNIST experiments presented in the paper.
 <p align=center>
 <img src="https://github.com/JakobCode/RFP/assets/77287533/03bf2857-4b9e-4ef9-bb4f-4169c61c4796" alt="teaser2" width="1000">
 </p>
@@ -44,8 +43,7 @@ Model weights and intermediate saves can be found here: ([link_goes_here](https:
 The notebook ```code/12_Evaluate_SEN12MS.ipynb``` provides a pipeline to apply Relevance Forward Propagation to pre-trained networks provided by the authors of the data set.<br>
 The pretrained networks can be found [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt).<br>
 The original (clear) can be found [here](https://mediatum.ub.tum.de/1474000).<br>
-The cloudy Version can be found [here](https://mediatum.ub.tum.de/1554803) and [here](https://patricktum.github.io/cloud_removal/sen12mscr/).<br>
-We provide checkpoints with intermediate computation steps: ([link_goes_here](https:link_goes_here))
+The cloudy Version can be found [here](https://mediatum.ub.tum.de/1554803) and [here](https://patricktum.github.io/cloud_removal/sen12mscr/).
 
 To use the provided scripts, the config file ```code/config/config.py``` has to be adjusted by setting the following variables:
 * ```ckpt_path_resnet50_sen12ms_cfg```: path to the pre-trained network [here](https://github.com/schmitt-muc/SEN12MS/blob/master/classification/linkToPreTrainedModels.txt)
@@ -59,20 +57,16 @@ To use the provided scripts, the config file ```code/config/config.py``` has to 
 
 * <b> Evaluation of ADVANCE </b> <br>
 For the advance data, the original authors repository can simply be adapted by applying adjusting the framework provided by the authors. For the basic case, the script has to be adjusted to only consider the MSE, loss and dropping the Scene loss. The RFP reperensetation can be applied straight forward by using the functionalities in this repo (```code/input_mapper.py```).
-[LINK](https://github.com/DTaoo/Multimodal-Aerial-Scene-Recognition/blob/master/model/sq_transfer.py)
+[LINK](https://github.com/DTaoo/Multimodal-Aerial-Scene-Recognition/)
 
 ## Citation
-
-```
-[1] Names, Names, (2024). Efficient Data Source Relevance Quantification for Multi-Source Neural Networks. TBA.
-```
 
 BibTeX format:
 ```
 @article{name2024efficient,
   title={Efficient Data Source Relevance Quantification for Multi-Source Neural Networks},
-  author={Names Names},
-  journal={TBA},
-  year={2023}
+  author={Gawlikowski, Jakob and Gottschling, Nina Maria},
+  journal={British Machine Vision Conference 2024},
+  year={2024}
 }
 ```
