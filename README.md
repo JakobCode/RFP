@@ -1,6 +1,6 @@
 # Relevance Forward Propagation (RFP)
 
-This repository contains the code for the paper <i>Efficient Data Source Relevance Quantification for Multi-Source Neural Networks</i> ([LINK](https:link_goes_here)).
+This repository contains the code for the paper <i>Efficient Data Source Relevance Quantification for Multi-Source Neural Networks</i> ([BMVC LINK](https://bmvc2024.org/proceedings/885/)).
 <br><br>
 The work proposes a Forward Relevance Propation approach to compute source-wise relevevances values within the neural network forward pass. 
 <p align=center>
